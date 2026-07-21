@@ -14,7 +14,7 @@ static MOCK_REGISTRY: Mutex<Vec<MockDefinition>> = Mutex::new(Vec::new());
 static EXECUTED_COMMANDS: Mutex<Vec<ExecutedCommand>> = Mutex::new(Vec::new());
 
 pub fn clear_mock_registry() {
-    MOCK_REGISTRY.clear();
+    MOCK_REGISTRY.lock().unwrap().clear();
 }
 
 pub fn find_mock(
